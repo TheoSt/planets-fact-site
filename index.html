@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width" initial-scale="1.0">
+        <title>Planets Fact site</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="app.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div>
+                    <h1>the planets</h1>
+                </div>
+                <div class="nav-menu">
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <span class="planet" id="mercury" data-planet="mercury">mercury</span>
+                            <span>></span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="planet" id="venus" data-planet="venus">venus</span>
+                            <span>></span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="planet" id="earth" data-planet="earth">earth</span>
+                            <span>></span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="planet" id="mars" data-planet="mars">mars</span>
+                            <span>></span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="planet" id="jupiter" data-planet="jupiter">jupiter</span>
+                            <span>></span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="planet" id="saturn" data-planet="saturn">saturn</span>
+                            <span>></span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="planet" id="uranus" data-planet="uranus">uranus</span>
+                            <span>></span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="planet" id="neptune" data-planet="neptune">neptune</span>
+                            <span>></span>
+                        </li>
+                    </ul>
+                </div>
+                <img id="ham-icon" src="images/icon-hamburger.svg" alt="dropdown menu icon">
+            </nav>
+        </header>
+        <main>
+            <div class="main-info">
+                <div class="tabs">
+                    <ul>
+                        <li><span class="tab" id="overview-tab">overview</span></li>
+                        <li><span class="tab" id="structure-tab">structure</span></li>
+                        <li><span class="tab" id="surface-tab">surface</span></li>
+                    </ul>
+<!--                     <hr id="tab-label"></hr>
+ -->                </div>
+                <div class="planet-image">
+                    <img id="planet-img" alt="earth image">
+                    <img id="geology-img" alt="geology image">
+                </div>
+                <div class="planet-info">
+                    <h1></h1>
+                    <p>
+                    </p>
+                    <p>
+                        Source <a>Wikipedia</a>
+                    </p>
+                </div>
+            </div>
+            <div class="sci-info">
+                <ul>
+                    <li>
+                        <span>rotation</span>
+                        <h2 class="sci-info-item"></h2>
+                    </li>
+                    <li>
+                        <span>evolution</span>
+                        <h2 class="sci-info-item"></h2>
+                    </li>
+                    <li>
+                        <span>radius</span>
+                        <h2 class="sci-info-item"></h2>
+                    </li>
+                    <li>
+                        <span>avg. temperature</span>
+                        <h2 class="sci-info-item"></h2>
+                    </li>
+                </ul>
+            </div>
+        </main>
+        <script src="app.js"></script>
+    </body>
+</html>

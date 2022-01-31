@@ -1,0 +1,238 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+    padding:0;
+}
+
+body {
+    background-color:#070625;
+    position:relative;
+    background-image:url("images/background-stars.svg");
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+h1, h2 {
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+li {
+    list-style-type:none;
+} 
+
+.navbar h1 {
+    color:white;
+    text-transform: uppercase;
+    font-weight:700;
+}
+
+.navbar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:90%;
+    margin:1em auto 0;
+}
+
+.nav-menu {
+    background-color:#070625;
+    position:absolute;
+    z-index:1;
+    width:90%;
+    top:40px;
+    left:-100%;
+    transition: left 1s;
+}
+
+.active-menu {
+    left:5%;
+}
+
+.nav-items {
+    text-align:left;
+}
+
+.nav-item {
+    margin:1em 0;
+    border-bottom:1px solid gray;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item span {
+    color:#9a9baf;
+    font-size:1rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.nav-item span:nth-of-type(2) {
+    font-size:1.5rem;
+} 
+
+main {
+    width:100%;
+    height:100vh;
+    margin-top:1em;
+}
+
+.main-info {
+    color:white;
+    width:90%;
+    margin:0 auto;
+    display:flex;
+    flex-direction: column;
+}
+
+.tabs {
+    border-top:1px solid gray;
+    border-bottom:1px solid gray;
+    position: relative;
+}
+
+.tabs ul {
+    display:flex;
+    justify-content: space-evenly;
+    align-items:center;
+}
+
+.tabs li {
+    display:inline-block;
+    padding:0.7rem 0;
+}
+
+.tabs li:hover {
+    cursor:pointer;
+}
+
+/*
+#tab-label {
+    width:60px;
+    height:2px;
+    background-color:white;
+    position:absolute;
+    bottom:0;
+    left:200px; 27 116
+    transition:left 0.5s;
+}
+*/
+
+
+.tabs span {
+    text-transform: uppercase;
+    font-size:0.7rem;
+    font-weight:400;
+    color:rgb(207, 204, 204);
+}
+
+.planet-image {
+    margin-top:1em ;
+    position:relative;
+}
+
+.planet-image img {
+    width:50%;
+    display:block;
+    margin:1em auto;
+}
+
+#geology-img {
+    display:none;
+}
+
+#geology-img[class="active-geology"] {
+    display:block;
+    position:absolute;
+    width:25%;
+    right:30px;
+    bottom:-40px;
+    transform:rotate(-30deg);
+}
+
+.planet-info {
+    text-align: center;
+    margin-top:1em;
+}
+
+.planet-info h1 {
+    text-transform: uppercase;
+    font-size:2.2rem;
+    margin-bottom:0.5em;
+}
+
+.planet-info p {
+    font-size:0.7rem;
+    font-weight:300;
+    opacity:0;
+    transition:opacity 0.4s ease-in;
+}
+
+.planet-info p.load {
+    opacity:1;
+}
+
+
+.planet-info p:nth-of-type(2) {
+    margin-top:1em;
+    color:gray;
+}
+
+.planet-info a {
+    text-decoration-color:rgb(177, 175, 175);
+    color:rgb(177, 175, 175);
+}
+
+.sci-info {
+    display:flex;
+    flex-direction: column;
+    color:white;
+    width:90%;
+    margin:1em auto 0;
+}
+
+.sci-info li {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    border:1px solid gray;
+    padding:0.5rem;
+    margin-bottom:0.5em;
+}
+
+.sci-info span {
+    text-transform:uppercase;
+    font-weight:400;
+    font-size:0.6rem;
+    color:rgb(196, 192, 192);
+}
+
+.sci-info h2 {
+    font-size:1rem;
+}
+
+.sci-info-item:last-of-type {
+    text-transform:uppercase;
+}
+
+
+
+
+@media screen and (min-width:768px) {
+    .main-info {
+        display:grid;
+        grid-template-rows: auto;
+        grid-template-columns:50% 50%;
+    }
+
+    .planet-image {
+        grid-column:1/-1;
+        width:100%;
+    }
+
+    .tabs {
+        grid-column:2;
+        grid-row:2;
+    }
+}
