@@ -5,10 +5,19 @@ let planetImage = document.querySelector("#planet-img");
 let planetInfo = document.querySelector(".planet-info");
 let sciInfoItems = document.querySelectorAll(".sci-info-item");
 let tabs = document.querySelectorAll(".tab");
+let tabLabel = document.querySelector("hr");
 let geologyImage = planetImage.nextElementSibling;
 let planetsObj = [];
 let activePlanet = null;
-let activeTab = "overview-tab";
+let activeTab = tabs[0];
+let deskLayout = false;
+
+planetImage.classList.add("init-image");
+
+if(window.innerWidth>=768) {
+    deskLayout = true;
+    activeTab.style.backgroundColor = "purple";
+}
 
 getData()
 .then(response=> {
@@ -24,28 +33,40 @@ getData()
 
 planets.forEach(p => 
         p.addEventListener("click",function() {
+
             activePlanet = showPlanet(this.dataset.planet);
             navMenu.classList.toggle("active-menu");
+            
+            if(planetImage.nextElementSibling.classList.length>=1) {
+                planetImage.nextElementSibling.classList.toggle("active-geology");
+            }
         })
 );
 
+
 tabs.forEach(tab => 
-        tab.addEventListener("click",function(){
-            if(activeTab===this.id) return;
-            if(this.id === "overview-tab") {
+        tab.children[0].addEventListener("click",function(){
+            if(activeTab.children[0].id===this.id) return;
+
+            var t = 0;
+
+            activeTab.style.backgroundColor = "transparent";
+            activeTab = this.parentNode;
+            
+            if(activeTab.children[0].id === "overview-tab") {
                 showOverview(activePlanet);
+                t = 1; 
             }
-            else if(this.id==="structure-tab") {
+            else if(activeTab.children[0].id==="structure-tab") {
                 showStructure(activePlanet);
+                t= 2; 
             }
             else {
                 showSurface(activePlanet);
+                t = 3;
             }
 
-            if(tab.id!=="surface-tab" && geologyImage.classList.length===1) {
-                geologyImage.classList.toggle("active-geology");
-            }
-            activeTab = this.id;
+            showTabGraphic(t);
         })
 );
 
@@ -54,6 +75,30 @@ hamIcon.addEventListener("click",function() {
 });
 
 
+/* functions */
+
+function showTabGraphic(tabNumber) {
+    if(deskLayout) {
+        activeTab.style.backgroundColor = "purple";
+     }
+     else {
+         switch(tabNumber) {
+             case 1:
+                 tabLabel.style.marginLeft = "4%";  
+                 break;
+             case 2:
+                 tabLabel.style.marginLeft = "35%";
+                 break;
+             case 3:
+                 tabLabel.style.marginLeft = "66%";
+                 break;
+         }
+     }
+
+    if(activeTab.children[0].id !=="surface-tab" && geologyImage.classList.length===1) {
+        geologyImage.classList.toggle("active-geology");
+    }
+}
 
 async function getData() {
     const response = await fetch("data.json");
@@ -75,11 +120,9 @@ function showPlanet(planetName) {
         sciInfoItems[1].textContent = planet.revolution;
         sciInfoItems[2].textContent = planet.radius;
         sciInfoItems[3].textContent = planet.temperature;
-        
         return planet;
     }
-    return null;
-    
+    return null;   
 }
 
 function showOverview(planet) {
